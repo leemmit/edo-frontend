@@ -1,6 +1,7 @@
 ## Getting Started
 
 Install [NodeJS](https://nodejs.org/en/download)
+
 Install [Shadcn UI](https://ui.shadcn.com/docs/installation/next)
 
 Run the development server:
