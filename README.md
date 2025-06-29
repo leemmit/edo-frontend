@@ -1,6 +1,9 @@
 ## Getting Started
 
-First, run the development server:
+Install [NodeJS](https://nodejs.org/en/download)
+Install [Shadcn UI](https://ui.shadcn.com/docs/installation/next)
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -18,8 +21,3 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## More
-
-Shadcn UI
-
-Prisma for authentification
