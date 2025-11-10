@@ -1,0 +1,21 @@
+:root {
+    /* Colors */
+    --red: #DD4C1E;
+    --dark-gray: #333;
+    --gray: #4b4b4b;
+    --dark-blue:  #0723df;
+    --blue: #526ed3;
+    --light-gray: #f4f4f4;
+    --white: #fff;
+
+    /* BG */
+    --bg-pi: #EAEFFF;
+    --grad-1: linear-gradient(90deg, #dfe8ff 0%, #7b96f7 100%);
+    /* --grad-1: linear-gradient(90deg, #DFE8FF 0%, #7B96F7 100%); */
+    --grad-2: linear-gradient(90deg, #8BA2F8 0%, #DEE7FF 100%);
+    --grad-tl: linear-gradient(to bottom right, #DFE8FF, #7B96F7);
+
+    /* Border */
+    --border-normal: #E0E0E0;
+    --border-active: #526ed3;
+}

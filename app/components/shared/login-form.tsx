@@ -1,14 +1,14 @@
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/app/components/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/app/components/ui/card"
+import { Input } from "@/app/components/ui/input"
+import { Label } from "@/app/components/ui/label"
 
 export function LoginForm({
   className,
@@ -16,14 +16,8 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
-        <CardHeader>
-          <CardTitle>Войти в учетную запись</CardTitle>
-          <CardDescription>
-            Введите Вашу почту ниже чтобы войти аккаунт
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+        <h3>Авторизация в ИС ЭДО</h3>
+        
           <form>
             <div className="flex flex-col gap-6">
               <div className="grid gap-3">
@@ -48,11 +42,17 @@ export function LoginForm({
                 <Input id="password" type="password" required />
               </div>
               <div className="flex flex-col gap-3">
-                <Button type="submit" className="w-full">
-                  Войти
+                <Button type="submit">
+                  Кнопка 1
                 </Button>
-                <Button variant="outline" className="w-full">
-                  Войти с помощью Google
+                <Button variant="arrow">
+                  Кнопка 2
+                </Button>
+                <Button variant="outline">
+                  Кнопка 3
+                </Button>
+                <Button variant="icon">
+                  Кнопка 4
                 </Button>
               </div>
             </div>
@@ -63,8 +63,6 @@ export function LoginForm({
               </a>
             </div>
           </form>
-        </CardContent>
-      </Card>
     </div>
   )
 }
