@@ -1,27 +1,28 @@
 'use client'
-import { RiEye2Fill } from "react-icons/ri";
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
+import { MdOutlineImageNotSupported } from "react-icons/md";
 import { useState } from "react";
+import { useRouter } from 'next/navigation'
 
 
-import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
+// import { z } from "zod"
+// import { zodResolver } from "@hookform/resolvers/zod"
+// import { useForm } from "react-hook-form"
+// import {
+//   Form,
+//   FormControl,
+//   FormDescription,
+//   FormField,
+//   FormItem,
+//   FormLabel,
+//   FormMessage,
+// } from "@/components/ui/form"
 
-const formSchema = z.object({
-  username: z.string().min(2).max(50),
-})
+// const formSchema = z.object({
+//   username: z.string().min(2).max(50),
+// })
 
 
 
@@ -29,23 +30,31 @@ const formSchema = z.object({
 export default function LoginPage() {
   const [isPasswordTyping, setIsPasswordTyping] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const router = useRouter();
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-    },
-  })
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
-  }
+  // const form = useForm<z.infer<typeof formSchema>>({
+  //   resolver: zodResolver(formSchema),
+  //   defaultValues: {
+  //     username: "",
+  //   },
+  // })
+  // function onSubmit(values: z.infer<typeof formSchema>) {
+  //   // Do something with the form values.
+  //   // ✅ This will be type-safe and validated.
+  //   console.log(values)
+  // }
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
+
+  const handleClick = () => {
+    router.push('/home');
+  };
+
+
   return (
-    <div className="bg-gradient-to-tl from-[#dfe8ff] to-[#7b96f7] flex min-h-svh w-full justify-between px-20">
+    <div className="flex min-h-svh w-full justify-between px-20 items-center">
       {/* <div className="w-xs flex flex-col gap-6">
         <img src="/" alt="logo" />
         <h3 className="text-[var(--dark-gray)] font-black display-block">
@@ -100,7 +109,7 @@ export default function LoginPage() {
         </Form>
       </div> */}
       <div className="w-xs flex flex-col gap-6">
-        <img src="\mipk.png" alt="mipk_logo" className="w-25"/>
+        <img src="\mipk.png" alt="mipk_logo" className="w-35"/>
         <h3 className="text-[var(--dark-gray)] font-black display-block">
           <span className="text-[var(--dark-blue)]">Авторизация </span><br/>
           в ИС «ЭДО»
@@ -127,11 +136,18 @@ export default function LoginPage() {
             )}
           </div>
         </div>
-        <Button>Войти в систему</Button>
+        <Button onClick={handleClick} >Войти в систему</Button>
         <Button variant="outline">Выйти из приложения</Button>
       </div>
-      <div className="w-xs my-10 bg-gray-400">
-        <img src="/" alt="image" />
+      <div className="w-xl min-h-[500px] mt-[100px] bg-gray-400 flex items-center justify-center">
+        {!imageError ? (
+          <img 
+          src="/" 
+          alt="image" 
+          onError={() => setImageError(true)}/>
+        ) : (
+          <MdOutlineImageNotSupported size={128} className="text-gray-300"/>
+        )}
       </div>
     </div>
   )
