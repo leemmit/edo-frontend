@@ -4,7 +4,8 @@ import { Input } from "../../components/ui/input";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { MdOutlineImageNotSupported } from "react-icons/md";
 import { useState } from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import Image from "next/image";
 
 
 // import { z } from "zod"
@@ -54,7 +55,7 @@ export default function LoginPage() {
 
 
   return (
-    <div className="flex min-h-svh w-full justify-between px-20 items-center">
+    <div className="flex min-h-svh w-[1280px] justify-between px-20 items-center">
       {/* <div className="w-xs flex flex-col gap-6">
         <img src="/" alt="logo" />
         <h3 className="text-[var(--dark-gray)] font-black display-block">
@@ -109,7 +110,7 @@ export default function LoginPage() {
         </Form>
       </div> */}
       <div className="w-xs flex flex-col gap-6">
-        <img src="\mipk.png" alt="mipk_logo" className="w-35"/>
+        <Image src="/mipk.png" alt="mipk_logo" width={140} height={0}/>
         <h3 className="text-[var(--dark-gray)] font-black display-block">
           <span className="text-[var(--dark-blue)]">Авторизация </span><br/>
           в ИС «ЭДО»
@@ -141,9 +142,11 @@ export default function LoginPage() {
       </div>
       <div className="w-xl min-h-[500px] mt-[100px] bg-gray-400 flex items-center justify-center">
         {!imageError ? (
-          <img 
+          <Image 
           src="/" 
           alt="image" 
+          width={100}
+          height={100}
           onError={() => setImageError(true)}/>
         ) : (
           <MdOutlineImageNotSupported size={128} className="text-gray-300"/>
