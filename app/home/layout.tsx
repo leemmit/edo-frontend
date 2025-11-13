@@ -6,7 +6,7 @@ export default function LoginLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-gradient-to-tl from-[#dfe8ff] to-[#7b96f7] min-h-svh w-full">
+    <div className="bg-gradient-to-tl from-[#dfe8ff] to-[#7b96f7] min-h-svh w-full justify-center items-center">
         <Header />
         {children}
     </div>

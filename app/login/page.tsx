@@ -109,9 +109,9 @@ export default function LoginPage() {
           </form>
         </Form>
       </div> */}
-      <div className="w-xs flex flex-col gap-6">
-        <Image src="/mipk.png" alt="mipk_logo" width={140} height={0}/>
-        <h3 className="text-[var(--dark-gray)] font-black display-block">
+      <div className="w-xs flex flex-col gap-6 xl:gap-5">
+        <Image src="/mipk.png" alt="mipk_logo" width={140} height={0} className="w-28 h-auto 2xl:w-48"/>
+        <h3 className="text-[var(--dark-gray)] 2xl:text-5xl xl:text-4xl font-black display-block">
           <span className="text-[var(--dark-blue)]">Авторизация </span><br/>
           в ИС «ЭДО»
         </h3>
@@ -126,9 +126,7 @@ export default function LoginPage() {
             type={showPassword ? "text" : "password"}
             placeholder="********"
             // value={password}
-            onChange={(e) => {
-                        setIsPasswordTyping(e.target.value.length > 0);
-                      }}
+            onChange={(e) => {setIsPasswordTyping(e.target.value.length > 0);}}
             />
             {isPasswordTyping && (
             <button className="text-gray-700 absolute right-5 top-2.5 text-xl cursor-pointer hover:opacity-80" onClick={togglePasswordVisibility}>
@@ -140,16 +138,16 @@ export default function LoginPage() {
         <Button onClick={handleClick} >Войти в систему</Button>
         <Button variant="outline">Выйти из приложения</Button>
       </div>
-      <div className="w-xl min-h-[500px] mt-[100px] bg-gray-400 flex items-center justify-center">
+      <div className="w-xl flex items-center justify-center">
         {!imageError ? (
           <Image 
           src="/" 
           alt="image" 
-          width={100}
-          height={100}
+          width={500}
+          height={500}
           onError={() => setImageError(true)}/>
         ) : (
-          <MdOutlineImageNotSupported size={128} className="text-gray-300"/>
+          <MdOutlineImageNotSupported size={128} className="text-gray-600"/>
         )}
       </div>
     </div>
